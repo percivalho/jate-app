@@ -31,19 +31,20 @@ module.exports = () => {
       }),
       new WebpackPwaManifest({
         // TODO: Create a manifest.json:
+        fingerprints: false,
+        inject: true,
         name: 'Just another text editor',
         short_name: 'J.A.T.E',
         description: 'Takes notes with Javascript syntax highlighting',
         background_color: '#225ca3',
-        publicPath: '/',
-        filename: 'manifest.json',
-        start_url: '/',
+        theme_color: '#225ca3',
+        start_url: './',
+        publicPath: './',
         icons: [
           {
-            src: path.resolve('favicon.ico'),
-            sizes: [96, 128, 192, 256, 384, 512], // multiple sizes
-            destination: 'assets/icons',
-            filename: 'icon_[size].[ext]'
+            src: path.resolve('src/images/logo.png'),
+            sizes: [96, 128, 192, 256, 384, 512],
+            destination: path.join('assets', 'icons'),
           },
         ]
       }),
