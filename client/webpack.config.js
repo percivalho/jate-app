@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 const { InjectManifest } = require('workbox-webpack-plugin');
 
@@ -24,10 +25,26 @@ module.exports = () => {
       }),
       new MiniCssExtractPlugin(),
       new InjectManifest({
-        swSrc: './src/sw.js',
+        swSrc: './src-sw.js',
         swDest: 'service-worker.js',
       }),
-
+      new WebpackPwaManifest({
+        // TODO: Create a manifest.json:
+        name: 'Just another text editor',
+        short_name: 'J.A.T.E',
+        description: 'Takes notes with Javascript syntax highlighting',
+        background_color: '#225ca3',
+        publicPath: '/',
+        filename: 'manifest.json',
+        icons: [
+          {
+            src: path.resolve('favicon.ico'),
+            sizes: [96, 128, 192, 256, 384, 512], // multiple sizes
+            destination: 'assets/icons',
+            filename: 'icon_[size].[ext]'
+          },
+        ]
+      }),
     ],
 
     module: {
@@ -37,8 +54,11 @@ module.exports = () => {
           use: [MiniCssExtractPlugin.loader, 'css-loader'],
         },
         {
-          test: /\.(png|svg|jpg|jpeg|gif)$/i,
+          test: /\.(png|svg|jpg|jpeg|gif|ico)$/i,
           type: 'asset/resource',
+          generator: {
+            filename: 'assets/icons/[name].[ext]'  // to maintain the original filename and extension
+          }
         },
         {
           test: /\.m?js$/,
