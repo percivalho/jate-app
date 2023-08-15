@@ -98,8 +98,13 @@ https://jate-another-app-cbfa1ff02b72.herokuapp.com/
 
 The application is a text editor.
 Include the saving the data into IndexDB.
-having the service worker to cache the relevant files/resources.
+having the service worker to cache the relevant files/resources so that it still can work in offline. 
 
+![offline](assets/indexDB.png)
+
+Also, it is installable PWA as shown in the report from lighthouse:
+
+![PWA](assets/PWA.png)
 
 ## Tests
 
