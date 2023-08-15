@@ -115,6 +115,14 @@ Testing done on:
 
 also done testing on offline function, by setting offline in Network tab in Chrome Dev Tools
 
+checked the manifest in Chrome Dev Tools 
+
+![Manifest](assets/Manifest.png)
+
+also checked the service worker in Chrome Dev Tools
+
+![ServiceWroker](assets/ServiceWorker.png)
+
 
 
 ## Resources
