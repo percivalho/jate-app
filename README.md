@@ -110,6 +110,10 @@ Also, it is installable PWA as shown in the report from lighthouse:
 
 Testing done on:
 
+- getDB for retrieveal of data from indexDB
+- putDB for updating the text content to indexDB
+
+also done testing on offline function, by setting offline in Network tab in Chrome Dev Tools
 
 
 
